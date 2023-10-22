@@ -1,0 +1,86 @@
+class MathOperations
+{
+    public static dynamic Add(dynamic a, dynamic b)
+    {
+        if (a is int || a is double)
+        {
+            if (b is int || b is double)
+            {
+                return a + b;
+            }
+        }
+        else if (a is List<int> && b is List<int>)
+        {
+            if (a.Count == b.Count)
+            {
+                var result = new List<int>();
+                for (int i = 0; i < a.Count; i++)
+                {
+                    result.Add(a[i] + b[i]);
+                }
+                return result;
+            }
+            else
+            {
+                throw new ArgumentException("Lists must have the same length for addition.");
+            }
+        }
+        throw new ArgumentException("Unsupported data types for addition.");
+    }
+
+    public static dynamic Subtract(dynamic a, dynamic b)
+    {
+        if (a is int || a is double)
+        {
+            if (b is int || b is double)
+            {
+                return a - b;
+            }
+        }
+        else if (a is List<int> && b is List<int>)
+        {
+            if (a.Count == b.Count)
+            {
+                var result = new List<int>();
+                for (int i = 0; i < a.Count; i++)
+                {
+                    result.Add(a[i] - b[i]);
+                }
+                return result;
+            }
+            else
+            {
+                throw new ArgumentException("Lists must have the same length for subtraction.");
+            }
+        }
+        throw new ArgumentException("Unsupported data types for subtraction.");
+    }
+
+    public static dynamic Multiply(dynamic a, dynamic b)
+    {
+        if (a is int || a is double)
+        {
+            if (b is int || b is double)
+            {
+                return a * b;
+            }
+        }
+        else if (a is List<int> && b is List<int>)
+        {
+            if (a.Count == b.Count)
+            {
+                var result = new List<int>();
+                for (int i = 0; i < a.Count; i++)
+                {
+                    result.Add(a[i] * b[i]);
+                }
+                return result;
+            }
+            else
+            {
+                throw new ArgumentException("Lists must have the same length for multiplication.");
+            }
+        }
+        throw new ArgumentException("Unsupported data types for multiplication.");
+    }
+}
