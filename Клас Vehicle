@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+
+abstract class Vehicle
+{
+    public int Speed { get; set; }
+    public int Capacity { get; set; }
+
+    public abstract void Move();
+}
+
+class Human
+{
+    public int Speed { get; set; }
+
+    public void Move()
+    {
+        Console.WriteLine($"Human is moving at a speed of {Speed} km/h");
+    }
+}
+
+class Car : Vehicle
+{
+    public override void Move()
+    {
+        Console.WriteLine($"Car is moving at a speed of {Speed} km/h with a capacity of {Capacity} passengers");
+    }
+}
+
+class Bus : Vehicle
+{
+    public override void Move()
+    {
+        Console.WriteLine($"Bus is moving at a speed of {Speed} km/h with a capacity of {Capacity} passengers");
+    }
+}
+
+class Train : Vehicle
+{
+    public override void Move()
+    {
+        Console.WriteLine($"Train is moving at a speed of {Speed} km/h with a capacity of {Capacity} passengers");
+    }
+}
+
+class Route
+{
+    public string Start { get; set; }
+    public string End { get; set; }
+
+    public void CalculateOptimalRoute(Vehicle vehicle)
+    {
+    }
+}
+
+class TransportNetwork
+{
+    private List<Vehicle> vehicles = new List<Vehicle>();
+
+    public void AddVehicle(Vehicle vehicle)
+    {
+        vehicles.Add(vehicle);
+    }
+
+    public void ControlMovement()
+    {
+        foreach (var vehicle in vehicles)
+        {
+            vehicle.Move();
+        }
+    }
+
+    public void EmbarkPassengers(Vehicle vehicle, int passengers)
+    {
+    }
+
+    public void DisembarkPassengers(Vehicle vehicle, int passengers)
+    {
+    }
+}
